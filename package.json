@@ -1,0 +1,48 @@
+{
+  "name": "typed-stan-lee",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "dev": "PORT=3000 ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.4.0",
+    "graphql": "^14.1.1",
+    "pg": "^7.8.0",
+    "ramda": "^0.26.1",
+    "reflect-metadata": "^0.1.13",
+    "shortid32": "^0.1.1",
+    "type-graphql": "^0.16.0",
+    "typeorm": "0.2.12"
+  },
+  "devDependencies": {
+    "@types/micro": "^7.3.3",
+    "@types/node": "^10.12.24",
+    "jest": "^24.1.0",
+    "ts-jest": "^23.10.5",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3"
+  },
+  "jest": {
+    "globalSetup": "./src/testUtils/callSetup.js",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}

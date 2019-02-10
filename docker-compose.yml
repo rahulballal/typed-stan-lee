@@ -1,0 +1,13 @@
+version: '3.6'
+
+services:
+  db:
+    image: postgres:11-alpine
+    restart: always
+    ports:
+      - "5000:5432"
+    environment:
+      POSTGRES_DB: stanlee-db
+      POSTGRES_USER: stanlee
+      POSTGRES_PASSWORD: stanlee
+    
