@@ -28,6 +28,12 @@ type PowerNode {
 type Query {
   # Get all the characters in marvel universe
   allCharacters: [CharacterNode!]!
+
+  # Get all the teams that characters may be in
+  allPower: [PowerNode!]!
+
+  # Get all the teams that characters may be in
+  allTeams: [TeamNode!]!
 }
 
 # A character in the marvel universe
