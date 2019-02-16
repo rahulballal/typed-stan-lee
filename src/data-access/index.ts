@@ -12,6 +12,7 @@ export class DataAccess {
       .getMany()
   }
   public getCharacterPowers(characterId: string): Promise<Power[]> {
+    console.info({ characterId })
     return this.dbCon
       .getRepository(Power)
       .createQueryBuilder('pow')
@@ -31,6 +32,25 @@ export class DataAccess {
     return this.dbCon
       .getRepository(Power)
       .createQueryBuilder()
+      .getMany()
+  }
+
+  public getCharacterWithPower(powerId: string): Promise<Character[]> {
+    return this.dbCon
+      .getRepository(Character)
+      .createQueryBuilder("chars")
+      .innerJoin("chars.powers", "pow")
+      .where("pow.externalId = :powerId", {powerId})
+      .getMany()
+
+  }
+
+  public getCharacterWithTeam( teamId: string): Promise<Character[]> {
+    return this.dbCon
+      .getRepository(Character)
+      .createQueryBuilder("chars")
+      .innerJoin("chars.teams", "team")
+      .where("team.externalId = :teamId", {teamId})
       .getMany()
   }
   public findAllTeams(): Promise<Team[]> {

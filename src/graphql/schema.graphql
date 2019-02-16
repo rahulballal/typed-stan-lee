@@ -30,7 +30,7 @@ type Query {
   allCharacters: [CharacterNode!]!
 
   # Get all the teams that characters may be in
-  allPower: [PowerNode!]!
+  allPowers: [PowerNode!]!
 
   # Get all the teams that characters may be in
   allTeams: [TeamNode!]!

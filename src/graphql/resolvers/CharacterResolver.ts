@@ -37,18 +37,24 @@ export class CharacterResolver implements ResolverInterface<CharacterNode> {
     @Root() { identifier }: CharacterNode,
     @Ctx() { dao }: IContext
   ): Promise<PowerNode[]> {
-    const dbResult = await dao.getCharacterPowers(identifier)
-    return R.map(
-      (item: Power): PowerNode => {
-        return {
-          identifier: item.externalId,
-          createdOn: item.createdOn,
-          name: item.name,
-          updatedOn: item.updatedOn,
-          characters: null
+    try {
+      const dbResult = await dao.getCharacterPowers(identifier)
+      return R.map(
+        (item: Power): PowerNode => {
+          return {
+            identifier: item.externalId,
+            createdOn: item.createdOn,
+            name: item.name,
+            updatedOn: item.updatedOn,
+            characters: null
+          }
         }
-      }
-    )(dbResult)
+      )(dbResult)
+    } catch (error) {
+      console.error(error)
+      throw error
+    }
+
   }
 
   @FieldResolver()

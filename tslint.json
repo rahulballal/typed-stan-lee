@@ -1,14 +1,14 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:latest", "tslint-config-prettier"],
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
   "jsRules": {},
   "rules": {
-    "no-console": false,
+    "no-console": true,
     "member-access": false,
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "interface-name": false,
-    "no-submodule-imports": false
+    "no-submodule-imports": true
   },
   "rulesDirectory": []
 }
