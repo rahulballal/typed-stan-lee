@@ -1,18 +1,26 @@
-import { resolve } from 'path'
-import { ApolloServer } from 'apollo-server'
-import { buildSchema } from 'type-graphql'
-import { GraphQLSchema } from 'graphql'
+import { ApolloServer } from 'apollo-server';
+import { GraphQLSchema } from 'graphql';
+import { resolve } from 'path';
+import { buildSchema, formatArgumentValidationError } from 'type-graphql';
 import { DataAccess } from '../data-access';
+import { CharacterResolver, PowerResolver, TeamResolver } from './resolvers';
 import { IContext } from './IContext';
 
 export async function getGraphqlSchema(): Promise<GraphQLSchema> {
   return buildSchema({
-    resolvers: [ `${__dirname}/resolvers/**/*.ts` ],
+    resolvers: [CharacterResolver, PowerResolver, TeamResolver],
     emitSchemaFile: resolve(__dirname, 'schema.graphql')
   })
 }
 
-export function createServer(schema: GraphQLSchema, dao: DataAccess): ApolloServer {
-  const context: IContext = { dao };
-  return new ApolloServer({ schema, playground: true, context })
+export function createServer(
+  schema: GraphQLSchema,
+  dao: DataAccess
+): ApolloServer {
+  return new ApolloServer({
+    schema,
+    playground: true,
+    formatError: formatArgumentValidationError,
+    context: ({ req, res }: any): IContext => ({ req, res, dao })
+  })
 }

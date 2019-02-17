@@ -8,9 +8,15 @@ import {
   ManyToMany,
   JoinTable
 } from 'typeorm'
-import { Afilliation } from './Afilliation'
+
 import { Power } from './Power'
 import { Team } from './Team'
+
+export enum Afilliation {
+  GOOD = "GOOD",
+  EVIL = "EVIL",
+  UNKNOWN = "UNKNOWN"
+}
 
 @Entity()
 export class Character extends BaseEntity {

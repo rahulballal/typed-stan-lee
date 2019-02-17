@@ -1,19 +1,33 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "rootDir": "./src",
-    "lib": ["es2016", "dom"],
-    "types": ["reflect-metadata","node"],
-    "typeRoots": ["./types", "./node_modules/@types"],
-    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
+    "pretty": true,
+    "sourceMap": true,
+    "target": "es6",
     "outDir": "./build",
-    "emitDecoratorMetadata": true,
+    "rootDir": "./src",
+    "lib": [
+      "es2016",
+      "dom",
+      "esnext.asynciterable"
+    ],
+    "types": [
+      "reflect-metadata"
+    ],
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ],
     "experimentalDecorators": true,
-    "noUnusedLocals": false,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "sourceMap": true
+    "resolveJsonModule": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": false,
+    "noUnusedLocals": true,
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

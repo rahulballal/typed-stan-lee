@@ -1,14 +1,14 @@
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
-import { seedDb } from './util/seed-db'
 import { getGraphqlSchema, createServer } from './graphql'
 import { createDAO } from './data-access'
 
-createConnection()
+const name = process.env.NODE_ENV === 'development' ? 'default' : 'production'
+
+console.info(`Connected to ${name} database`)
+
+createConnection(name)
   .then(async connection => {
-    console.log('Syncing up database entities')
-    await seedDb(connection)
-    console.info('Seeded database')
     const schema = await getGraphqlSchema()
     const { url } = await createServer(schema, createDAO(connection)).listen(
       process.env.PORT || 4000
