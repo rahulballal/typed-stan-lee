@@ -12,7 +12,9 @@
     "lint": "tslint -c ./tslint.json './src/**/*.ts'",
     "prod": "NODE_ENV=production node .",
     "start": "run-s clean compile prod",
-    "test:unit": "jest"
+    "test:unit": "jest",
+    "test:integration": "exit 0",
+    "test": "run-s test:unit"
   },
   "keywords": [],
   "author": "",
