@@ -13,7 +13,8 @@
       "esnext.asynciterable"
     ],
     "types": [
-      "reflect-metadata"
+      "reflect-metadata",
+      "jest"
     ],
     "typeRoots": [
       "./types",

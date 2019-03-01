@@ -1,0 +1,11 @@
+version: '1.0'
+
+steps:
+  run_ci:
+    image: node:alpine-11
+    working_directory: ${{main_clone}}
+    commands:
+      - yarn install
+      - yarn lint
+      - yarn test
+      - yarn compile
