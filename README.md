@@ -1,7 +1,3 @@
-# Awesome Project Build with TypeORM
+# A sample GraphQL project that allows you to be Stan Lee
 
-Steps to run this project:
-
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+![azure-pipeline-badge](https://dev.azure.com/rahulballal0713/typed-stan-lee/_apis/build/repos/git/badge?api-version=5.0-preview.2)
