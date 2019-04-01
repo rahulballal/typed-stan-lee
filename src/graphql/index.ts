@@ -1,7 +1,7 @@
 import { ApolloServer } from 'apollo-server';
 import { GraphQLSchema } from 'graphql';
 import { resolve } from 'path';
-import { buildSchema, formatArgumentValidationError } from 'type-graphql';
+import { buildSchema } from 'type-graphql';
 import { DataAccess } from '../data-access';
 import { CharacterResolver, PowerResolver, TeamResolver } from './resolvers';
 import { IContext } from './IContext';
@@ -20,7 +20,6 @@ export function createServer(
   return new ApolloServer({
     schema,
     playground: true,
-    formatError: formatArgumentValidationError,
     context: ({ req, res }: any): IContext => ({ req, res, dao })
   })
 }
